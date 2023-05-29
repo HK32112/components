@@ -34,13 +34,16 @@ export default class Unblock extends Component {
                 'X-Authorization': token,
             };
 
-            const response = await fetch('http://localhost:3333/api/1.0.0/user/' + this.state.user_id + '/block', {
-                method: 'DELETE',
-                headers,
-                body: JSON.stringify({
-                    user_id: this.state.user_id,
-                }),
-            });
+            const response = await fetch(
+                'http://localhost:3333/api/1.0.0/user/' + this.state.user_id + '/block',
+                {
+                    method: 'DELETE',
+                    headers,
+                    body: JSON.stringify({
+                        user_id: this.state.user_id,
+                    }),
+                }
+            );
 
             const responseJson = await response.json();
 
@@ -54,10 +57,9 @@ export default class Unblock extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.formContainer}>
-                    <View style={styles.email}>
-                        <Text style={styles.formLabel}>user_id:</Text>
+                    <View style={styles.user_id_input}>
                         <TextInput
-                            style={{ height: 40, borderWidth: 1, paddingVertical: 10 }}
+                            style={styles.input}
                             placeholder="Enter user_id"
                             onChangeText={(user_id) => this.setState({ user_id })}
                             defaultValue={this.state.user_id}
@@ -92,20 +94,12 @@ const styles = StyleSheet.create({
     formContainer: {
         padding: 20,
     },
-    title: {
-        color: '#4A641E',
-        backgroundColor: '#A4B389',
-        padding: 10,
-        fontSize: 25,
-    },
-    formLabel: {
-        fontSize: 15,
-        color: '#4A641E',
-    },
-    email: {
+    user_id_input: {
         paddingVertical: 10,
     },
-    password: {
+    input: {
+        height: 40,
+        borderWidth: 1,
         paddingVertical: 10,
     },
     button: {

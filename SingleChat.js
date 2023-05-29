@@ -116,7 +116,7 @@ export default class SingleChat extends Component {
       <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={64}>
         <FlatList
           data={this.state.messages}
-          keyExtractor={(item, index) => index.toString()} // Use the index as the key
+          keyExtractor={(_item, index) => index.toString()} // Use the index as the key
           renderItem={({ item }) => (
             <View style={styles.messageContainer} key={item.message_id}>
               <Text>{item.message}</Text>

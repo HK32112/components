@@ -125,7 +125,7 @@ export default class UpdateProfile extends Component {
                     )}
                 </View>
 
-                <View style={styles.signupbtn}>
+                <View>
                     <Button
                         title="Update Profile"
                         onPress={this.updateProfile}
@@ -143,9 +143,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-    },
-    inputContainer: {
-        marginVertical: 10,
     },
     input: {
         borderWidth: 1,

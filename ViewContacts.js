@@ -119,7 +119,7 @@ export default class ViewContacts extends Component {
         {this.state.contacts.map((item, index) => (
           <ListItem key={index} bottomDivider>
             <ListItem.Content>
-              <ListItem.Title>{item.first_name}, {item.last_name}, {item.user_id}</ListItem.Title>
+              <ListItem.Title>{item.first_name} {item.last_name}</ListItem.Title>
               <View style={styles.loginbtn}>
                 <Button
                   title="Delete Contact"
@@ -145,25 +145,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  formContainer: {
-    padding: 20,
-  },
-  title: {
-    color: '#4A641E',
-    backgroundColor: '#A4B389',
-    padding: 10,
-    fontSize: 25,
-  },
-  formLabel: {
-    fontSize: 15,
-    color: '#4A641E',
-  },
-  email: {
-    paddingVertical: 10,
-  },
-  password: {
-    paddingVertical: 10,
-  },
   button: {
     backgroundColor: '#2196F3',
     paddingHorizontal: 10,
@@ -177,19 +158,5 @@ const styles = StyleSheet.create({
   },
   error: {
     color: 'red',
-  },
-  listContainer: {
-    padding: 20,
-  },
-  listItem: {
-    backgroundColor: '#F0F0F0',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginBottom: 10,
-    borderRadius: 5,
-  },
-  listItemText: {
-    fontSize: 16,
-    color: '#4A641E',
   },
 });

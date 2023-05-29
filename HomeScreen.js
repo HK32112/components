@@ -9,7 +9,7 @@ export default class HomeScreen extends Component {
         <View style={styles.headerContainer}>
           <Text style={styles.header}>Welcome to WhatsThat</Text>
         </View>
-        <View style={styles.loginbtn}>
+        <View style={styles.loginBtn}>
           <Button
             title="Login"
             buttonStyle={styles.button}
@@ -41,7 +41,7 @@ const styles = {
     fontSize: 40,
     color: 'black',
   },
-  loginbtn: {
+  loginBtn: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

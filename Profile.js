@@ -133,10 +133,9 @@ export default class Profile extends Component {
                         }}
                     />
                     <Text>
-                        Welcome, {this.state.profileInformation.first_name}
-                        {this.state.profileInformation.last_name}
+                        Welcome, {this.state.profileInformation.first_name} {this.state.profileInformation.last_name}
                     </Text>
-                    <View style={styles.signupbtn}>
+                    <View>
                         <Button
                             title="Logout"
                             buttonStyle={styles.button}
@@ -170,36 +169,6 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         justifyContent: 'center',
     },
-    first_name_input: {
-        height: 40,
-        borderWidth: 1,
-        width: '100%',
-    },
-    last_name_input: {
-        height: 40,
-        borderWidth: 1,
-        width: '100%',
-    },
-    email_input: {
-        height: 40,
-        borderWidth: 1,
-        width: '100%',
-    },
-    password_input: {
-        height: 40,
-        borderWidth: 1,
-        width: '100%',
-    },
-    email: {
-        marginBottom: 5,
-    },
-    password: {
-        marginBottom: 10,
-    },
-    signup: {
-        justifyContent: 'center',
-        textDecorationLine: 'underline',
-    },
     button: {
         marginTop: 20,
         marginLeft: 10,
@@ -211,9 +180,5 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 10,
         color: 'white',
-    },
-    header: {
-        fontSize: 30,
-        fontWeight: '900',
     },
 });
