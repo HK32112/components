@@ -127,6 +127,7 @@ const styles = {
     justifyContent: 'center',
   },
   button: {
+    marginLeft: 10,
     marginTop: 20,
     marginBottom: 20,
     backgroundColor: '#2196F3',

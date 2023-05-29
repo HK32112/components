@@ -90,7 +90,7 @@ export default class AddChat extends Component {
             )}
 
             <Button
-              title="Add Contact"
+              title="Add Chat"
               buttonStyle={styles.button}
               onPress={this.addChat}
             />
@@ -134,31 +134,16 @@ const styles = StyleSheet.create({
   formContainer: {
     padding: 20,
   },
-
-  title: {
-    color: '#4A641E',
-    backgroundColor: '#A4B389',
-    padding: 10,
-    fontSize: 25
-  },
   formLabel: {
     fontSize: 15,
     color: '#4A641E'
   },
-  email: {
-    paddingVertical: 10
-  },
-
-  password: {
-    paddingVertical: 10
-  },
   button: {
-    backgroundColor: '#A4B389',
+    backgroundColor: '#2196F3',
     paddingHorizontal: 10,
     paddingVertical: 10,
     borderRadius: 5,
     alignItems: 'center',
-
   },
   buttonText: {
     fontSize: 15,
@@ -167,23 +152,10 @@ const styles = StyleSheet.create({
   },
   error: {
     color: "red",
-
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
   },
   listContainer: {
     padding: 20,
   },
-
-  title: {
-    color: '#4A641E',
-    backgroundColor: '#A4B389',
-    padding: 10,
-    fontSize: 25,
-  },
-
   listItem: {
     backgroundColor: '#F0F0F0',
     paddingVertical: 10,
@@ -195,13 +167,6 @@ const styles = StyleSheet.create({
   listItemText: {
     fontSize: 16,
     color: '#4A641E',
-  },
-  button: {
-    backgroundColor: '#A4B389',
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-    borderRadius: 5,
-    alignItems: 'center',
   },
 });
 
