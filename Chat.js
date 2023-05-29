@@ -159,7 +159,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 5,
   },
-
   listItemText: {
     fontSize: 16,
     color: '#4A641E',
