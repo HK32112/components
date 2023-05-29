@@ -134,10 +134,6 @@ const styles = StyleSheet.create({
   formContainer: {
     padding: 20,
   },
-  formLabel: {
-    fontSize: 15,
-    color: '#4A641E'
-  },
   button: {
     backgroundColor: '#2196F3',
     paddingHorizontal: 10,
