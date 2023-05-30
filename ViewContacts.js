@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Alert, StyleSheet } from 'react-native';
+import { View, Alert, StyleSheet, ScrollView } from 'react-native';
 import { ListItem, Button } from 'react-native-elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -115,48 +115,39 @@ export default class ViewContacts extends Component {
   };
   render() {
     return (
-      <View>
-        {this.state.contacts.map((item, index) => (
-          <ListItem key={index} bottomDivider>
-            <ListItem.Content>
-              <ListItem.Title>{item.first_name} {item.last_name}</ListItem.Title>
-              <View style={styles.loginbtn}>
-                <Button
-                  title="Delete Contact"
-                  onPress={() => this.deleteContact(item.user_id)}
-                  buttonStyle={styles.button}
-                />
-                <Button
-                  title="Block Contact"
-                  onPress={() => this.blockContact(item.user_id)}
-                  buttonStyle={styles.button}
-                />
-              </View>
-            </ListItem.Content>
-          </ListItem>
-        ))}
-      </View>
+      <ScrollView>
+        <View>
+          {this.state.contacts.map((item, index) => (
+            <ListItem key={index} bottomDivider>
+              <ListItem.Content>
+                <ListItem.Title>{item.first_name} {item.last_name}</ListItem.Title>
+                <View>
+                  <Button
+                    title="Delete Contact"
+                    onPress={() => this.deleteContact(item.user_id)}
+                    buttonStyle={styles.button}
+                  />
+                  <Button
+                    title="Block Contact"
+                    onPress={() => this.blockContact(item.user_id)}
+                    buttonStyle={styles.button}
+                  />
+                </View>
+              </ListItem.Content>
+            </ListItem>
+          ))}
+        </View>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
-  },
   button: {
     backgroundColor: '#2196F3',
     paddingHorizontal: 10,
     paddingVertical: 10,
     borderRadius: 5,
     alignItems: 'center',
-  },
-  buttonText: {
-    fontWeight: 'bold',
-    color: 'white',
-  },
-  error: {
-    color: 'red',
   },
 });

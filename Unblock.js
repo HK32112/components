@@ -70,7 +70,7 @@ export default class Unblock extends Component {
                         )}
                     </View>
 
-                    <View style={styles.loginbtn}>
+                    <View>
                         <Button
                             title="Unblock Contact"
                             onPress={() => this.unblockContact()}

@@ -22,9 +22,7 @@ export default class UpdateProfile extends Component {
     }
 
     updateProfile = async () => {
-        this.setState({ submitted: true });
-        this.setState({ error: '' });
-        let to_send = {};
+        this.setState({ submitted: true, error: '' });
 
         if (!this.state.updated_first_name) {
             this.setState({ error: 'Must enter first name' });
@@ -34,9 +32,9 @@ export default class UpdateProfile extends Component {
         if (!this.state.updated_last_name) {
             this.setState({ error: 'Must enter last name' });
             return;
-        } else {
-            this.patchData();
         }
+        this.patchData();
+        this.setState({ updated_first_name: '', updated_last_name: '' });
     };
 
     async getData() {
@@ -97,7 +95,7 @@ export default class UpdateProfile extends Component {
     render() {
         return (
             <View style={styles.formContainer}>
-                <View style={styles.inputContainer}>
+                <View>
                     <Text>First Name:</Text>
                     <Input
                         style={styles.input}
@@ -111,7 +109,7 @@ export default class UpdateProfile extends Component {
                     )}
                 </View>
 
-                <View style={styles.inputContainer}>
+                <View>
                     <Text>Last Name:</Text>
                     <Input
                         style={styles.input}

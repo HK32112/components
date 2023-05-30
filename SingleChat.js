@@ -12,6 +12,7 @@ export default class SingleChat extends Component {
       messages: [],
       loading: true,
       new_message: "",
+      chat_name: this.props.route.params.chat_name
     };
   }
 
@@ -73,8 +74,9 @@ export default class SingleChat extends Component {
 
       if (response.status === 200) {
         console.log("Added message");
+        const newMessage = { message: this.state.new_message };
         this.setState((prevState) => ({
-          messages: [...prevState.messages, { message: this.state.new_message }],
+          messages: [newMessage, ...prevState.messages],
           new_message: ""
         }));
       } else {
@@ -84,46 +86,23 @@ export default class SingleChat extends Component {
       console.log(err);
     }
   }
-
-  async deleteMessage(messageID) {
-    const token = await AsyncStorage.getItem('whatsthat_session_token');
-    const chat_id = 1;
-    const message_id = 1;
-    console.log("Deleting message");
-
-    try {
-      const response = await fetch(`http://localhost:3333/api/1.0.0/chat/${chat_id}/message/${message_id}`, {
-        method: "DELETE",
-        headers: {
-          "X-Authorization": token
-        }
-      });
-
-      if (response.status === 200) {
-        console.log("Deleted message");
-        this.setState((prevState) => ({
-          messages: prevState.messages.filter((message) => message.message_id !== messageID)
-        }));
-      } else {
-        throw new Error("Failed to delete message");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
   render() {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={64}>
+        <View>
+          <Text>Chat Name</Text>
+          <TextInput
+            value={this.state.chat_name}
+            onChangeText={(val) => this.setState({ chat_name: val })}
+          />
+        </View>
+
         <FlatList
           data={this.state.messages}
-          keyExtractor={(_item, index) => index.toString()} // Use the index as the key
+          keyExtractor={(_item, index) => index.toString()}
           renderItem={({ item }) => (
             <View style={styles.messageContainer} key={item.message_id}>
               <Text>{item.message}</Text>
-              <Button
-                title="Delete"
-                onPress={() => this.deleteMessage(item.message_id)}
-              />
             </View>
           )}
           inverted
@@ -144,6 +123,7 @@ export default class SingleChat extends Component {
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {

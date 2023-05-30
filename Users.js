@@ -127,11 +127,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#ffffff',
   },
-  FriendTitle: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    paddingBottom: 20,
-  },
   UserContainer: {
     backgroundColor: '#f2f2f2',
     padding: 10,

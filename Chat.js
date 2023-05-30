@@ -62,12 +62,22 @@ export default class AddChat extends Component {
         body: JSON.stringify({
           name: this.state.chat_name,
         }),
-      });
+      })
+        .then((response) => {
+          if (response.status === 201) {
+            return response.json();
+          } if (response.status === 400) {
+            throw 'Bad Request';
+          } if (response.status === 401) {
+            throw 'Something went wrong';
+          }
+        });
 
       const responseJson = await response.json();
 
       console.log('ChatAdded: ', responseJson.token);
-      this.loadChats();
+      this.setState({ chat_name: '' });
+      await this.loadChats();
     } catch (error) {
       console.error(error);
       this.loadChats();
@@ -140,11 +150,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 5,
     alignItems: 'center',
-  },
-  buttonText: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    color: '#4A641E'
   },
   error: {
     color: "red",

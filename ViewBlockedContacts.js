@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ListItem } from 'react-native-elements';
@@ -47,22 +47,24 @@ export default class ViewBlockedContacts extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        {this.state.contacts.map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.listItem}
-            onPress={() => this.props.navigation.navigate('Unblock', { contact: item })}
-          >
-            <ListItem.Content>
-              <ListItem.Title style={styles.listItemText}>{item.user_id}</ListItem.Title>
-              <ListItem.Title style={styles.listItemText}>{item.first_name}</ListItem.Title>
-              <ListItem.Title style={styles.listItemText}>{item.last_name}</ListItem.Title>
-              <ListItem.Title style={styles.listItemText}>{item.email}</ListItem.Title>
-            </ListItem.Content>
-          </TouchableOpacity>
-        ))}
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+          {this.state.contacts.map((item, index) => (
+            <TouchableOpacity
+              key={index}
+              style={styles.listItem}
+              onPress={() => this.props.navigation.navigate('Unblock', { contact: item })}
+            >
+              <ListItem.Content>
+                <ListItem.Title style={styles.listItemText}>{item.user_id}</ListItem.Title>
+                <ListItem.Title style={styles.listItemText}>{item.first_name}</ListItem.Title>
+                <ListItem.Title style={styles.listItemText}>{item.last_name}</ListItem.Title>
+                <ListItem.Title style={styles.listItemText}>{item.email}</ListItem.Title>
+              </ListItem.Content>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
     );
   }
 }
