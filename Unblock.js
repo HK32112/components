@@ -34,8 +34,7 @@ export default class Unblock extends Component {
                 'X-Authorization': token,
             };
 
-            const response = await fetch(
-                'http://localhost:3333/api/1.0.0/user/' + this.state.user_id + '/block',
+            const response = await fetch('http://localhost:3333/api/1.0.0/user/' + this.state.user_id + '/block',
                 {
                     method: 'DELETE',
                     headers,

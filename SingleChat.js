@@ -86,7 +86,7 @@ export default class SingleChat extends Component {
       console.log(err);
     }
   }
-  // renders the chat name and the new message that is sent 
+
   render() {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={64}>

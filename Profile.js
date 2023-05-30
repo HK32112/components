@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -63,9 +63,7 @@ export default class Profile extends Component {
 
 
     getData = async () => {
-        return fetch(
-            'http://localhost:3333/api/1.0.0/user/' +
-            (await AsyncStorage.getItem('whatsthat_user_id')),
+        return fetch('http://localhost:3333/api/1.0.0/user/' + (await AsyncStorage.getItem('whatsthat_user_id')),
             {
                 method: 'GET',
                 headers: {
@@ -167,12 +165,6 @@ export default class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: '80%',
-        alignItems: 'stretch',
-        justifyContent: 'center',
-    },
     button: {
         marginTop: 20,
         marginLeft: 10,

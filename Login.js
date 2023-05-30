@@ -17,7 +17,7 @@ export default class LoginScreen extends Component {
     this.loginbutton = this.loginbutton.bind(this);
   }
 
-  // authentication and validation for login form 
+
   loginbutton = async () => {
     console.log('HELLO');
 
@@ -77,7 +77,7 @@ export default class LoginScreen extends Component {
         }
       });
   };
-  // renders the login form 
+
   render() {
     return (
       <View style={styles.container}>

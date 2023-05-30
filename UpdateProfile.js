@@ -70,9 +70,7 @@ export default class UpdateProfile extends Component {
             to_send.last_name = this.state.updated_last_name;
         }
 
-        return fetch(
-            'http://localhost:3333/api/1.0.0/user/' +
-            (await AsyncStorage.getItem('whatsthat_user_id')),
+        return fetch('http://localhost:3333/api/1.0.0/user/' + (await AsyncStorage.getItem('whatsthat_user_id')),
             {
                 method: 'PATCH',
                 headers: {
