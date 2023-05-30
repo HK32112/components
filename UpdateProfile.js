@@ -21,6 +21,7 @@ export default class UpdateProfile extends Component {
         this.getData();
     }
 
+
     updateProfile = async () => {
         this.setState({ submitted: true, error: '' });
 
@@ -89,7 +90,6 @@ export default class UpdateProfile extends Component {
                 console.log(error);
             });
     }
-
 
 
     render() {

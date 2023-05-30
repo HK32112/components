@@ -32,6 +32,7 @@ export default class Profile extends Component {
         this.unsubscribe();
     }
 
+
     async getProfilephoto() {
         const id = await AsyncStorage.getItem('whatsthat_user_id');
         const token = await AsyncStorage.getItem('whatsthat_session_token');
@@ -60,6 +61,7 @@ export default class Profile extends Component {
             });
     }
 
+
     getData = async () => {
         return fetch(
             'http://localhost:3333/api/1.0.0/user/' +
@@ -85,6 +87,7 @@ export default class Profile extends Component {
                 console.log(error);
             });
     };
+
 
     logoutbutton = async () => {
         return fetch('http://localhost:3333/api/1.0.0/logout', {
@@ -114,6 +117,7 @@ export default class Profile extends Component {
                 this.setState({ submitted: false });
             });
     };
+
 
     render() {
         if (this.state.isLoading) {
