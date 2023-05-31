@@ -15,10 +15,12 @@ export default class ViewContacts extends Component {
     };
   }
 
+
   componentDidMount() {
     this.loadContacts();
   }
 
+  // load contacts of added users which have been added as contacts 
   loadContacts = async () => {
     try {
       const token = await AsyncStorage.getItem("whatsthat_session_token");
@@ -47,6 +49,7 @@ export default class ViewContacts extends Component {
     }
   };
 
+  // allow a user to delete a contact 
   deleteContact = async (user_id) => {
     this.setState({ submitted: true });
     this.setState({ error: "" });
@@ -73,6 +76,7 @@ export default class ViewContacts extends Component {
     }
   };
 
+  // allow a user to block a contact given their name 
   blockContact = async (user_id) => {
     try {
       const token = await AsyncStorage.getItem("whatsthat_session_token");
@@ -113,6 +117,7 @@ export default class ViewContacts extends Component {
 
     }
   };
+  // allow a user to view their contacts and give them option to delete and block contacts 
   render() {
     return (
       <ScrollView>

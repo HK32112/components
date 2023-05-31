@@ -20,6 +20,7 @@ export default class Register extends Component {
         this.registerbutton = this.registerbutton.bind(this);
     }
 
+    // allow user to create an account and ask them to enter first name, last name, email address and password when doing so which will be validated and authenticated 
     registerbutton = () => {
         this.setState({ submitted: true });
         this.setState({ error: '' });
@@ -96,6 +97,7 @@ export default class Register extends Component {
     };
 
 
+    // render registration form which allows user to create an account 
     render() {
         return (
             <View style={styles.container}>

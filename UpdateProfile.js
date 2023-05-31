@@ -22,6 +22,7 @@ export default class UpdateProfile extends Component {
     }
 
 
+    // user can update their profile information 
     updateProfile = async () => {
         this.setState({ submitted: true, error: '' });
 
@@ -38,6 +39,7 @@ export default class UpdateProfile extends Component {
         this.setState({ updated_first_name: '', updated_last_name: '' });
     };
 
+    // retrieve profile information 
     async getData() {
         return fetch('http://localhost:3333/api/1.0.0/user/' + (await AsyncStorage.getItem('whatsthat_user_id')),
             {
@@ -60,6 +62,7 @@ export default class UpdateProfile extends Component {
             });
     }
 
+    // send updated profile information of user to profile screen 
     async patchData() {
         const to_send = {};
         if (this.state.profileInformation.first_name != this.state.updated_first_name) {
@@ -90,6 +93,7 @@ export default class UpdateProfile extends Component {
     }
 
 
+    // allow user to update their profile information 
     render() {
         return (
             <View style={styles.formContainer}>

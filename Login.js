@@ -17,7 +17,7 @@ export default class LoginScreen extends Component {
     this.loginbutton = this.loginbutton.bind(this);
   }
 
-
+  // authentication and validation of user to app 
   loginbutton = async () => {
     console.log('HELLO');
 
@@ -78,6 +78,7 @@ export default class LoginScreen extends Component {
       });
   };
 
+  //render login form and if user is not already registered send the user to registration page where an account will be created 
   render() {
     return (
       <View style={styles.container}>
@@ -109,6 +110,7 @@ export default class LoginScreen extends Component {
           buttonStyle={styles.button}
           onPress={this.loginbutton}
         />
+
 
         <Button
           title="Register"

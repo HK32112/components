@@ -10,6 +10,7 @@ export default function CameraScreen({ route, navigation }) {
   const [permission, requestPermission] = Camera.useCameraPermissions();
   const [camera, setCamera] = useState(null);
 
+  // get permission off user for camera access 
   useEffect(() => {
     async function getPermission() {
       requestPermission(await Camera.requestCameraPermissionsAsync());
@@ -21,6 +22,7 @@ export default function CameraScreen({ route, navigation }) {
     getPermission();
   }, []);
 
+  // allow user to take a photo 
   async function takePhoto() {
     if (camera) {
       const options = {
@@ -32,6 +34,7 @@ export default function CameraScreen({ route, navigation }) {
     }
   }
 
+  // allow user to upload image 
   async function pickImage() {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -45,6 +48,7 @@ export default function CameraScreen({ route, navigation }) {
     }
   }
 
+  // send the photo to the server 
   async function sendToServer(data) {
     const id = await AsyncStorage.getItem('whatsthat_user_id');
     const token = await AsyncStorage.getItem('whatsthat_session_token');
@@ -80,6 +84,7 @@ export default function CameraScreen({ route, navigation }) {
     );
   }
 
+  // render camera and all required buttons including the option to take photo, upload photo and flip camera 
   if (!permission || !permission.granted) {
     return <Text>No access to camera</Text>;
   } else {

@@ -19,6 +19,7 @@ export default class AddChat extends Component {
     this.loadChats();
   }
 
+  // load chats 
   loadChats = async () => {
     const token = await AsyncStorage.getItem('whatsthat_session_token');
     try {
@@ -37,6 +38,7 @@ export default class AddChat extends Component {
     }
   };
 
+  // add a new chat 
   addChat = async () => {
     this.setState({ submitted: true });
     this.setState({ error: '' });
@@ -84,6 +86,7 @@ export default class AddChat extends Component {
     }
   };
 
+  // render all chat names and allow user to enter a new chat name and also allow a user to click on a chat name 
   render() {
     return (
       <View style={styles.container}>

@@ -14,6 +14,7 @@ export default class Profile extends Component {
         };
     }
 
+    // check if user has logged in and if so retrieve the session token 
     checkLoggedIn = async () => {
         const value = await AsyncStorage.getItem('@session_token');
         if (value == null) {
@@ -21,6 +22,7 @@ export default class Profile extends Component {
         }
     };
 
+    // user profile information is retrieved as well as their profile photo  
     componentDidMount() {
         this.unsubscribe = this.props.navigation.addListener('focus', () => {
             this.getData();
@@ -33,6 +35,7 @@ export default class Profile extends Component {
     }
 
 
+    // get the profile photo of logged in user 
     async getProfilephoto() {
         const id = await AsyncStorage.getItem('whatsthat_user_id');
         const token = await AsyncStorage.getItem('whatsthat_session_token');
@@ -62,6 +65,7 @@ export default class Profile extends Component {
     }
 
 
+    // get profile information of logged in user 
     getData = async () => {
         return fetch('http://localhost:3333/api/1.0.0/user/' + (await AsyncStorage.getItem('whatsthat_user_id')),
             {
@@ -87,6 +91,7 @@ export default class Profile extends Component {
     };
 
 
+    // allow the user to logout of the app 
     logoutbutton = async () => {
         return fetch('http://localhost:3333/api/1.0.0/logout', {
             method: 'POST',
@@ -117,6 +122,7 @@ export default class Profile extends Component {
     };
 
 
+    // retrieve the profile photo of the loggged in user as well as the first name and last name of user and allow user to either logout, update profile or upload photo 
     render() {
         if (this.state.isLoading) {
             return <Text>Loading...</Text>;

@@ -17,6 +17,7 @@ export default class ViewBlockedContacts extends Component {
     this.loadContacts();
   }
 
+  // load contacts which have been blocked 
   loadContacts = async () => {
     try {
       const token = await AsyncStorage.getItem("whatsthat_session_token");
@@ -45,6 +46,7 @@ export default class ViewBlockedContacts extends Component {
     }
   };
 
+  // allow a user to view blocked contacts 
   render() {
     return (
       <ScrollView>

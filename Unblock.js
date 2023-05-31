@@ -16,6 +16,7 @@ export default class Unblock extends Component {
         this.unblockContact = this.unblockContact.bind(this);
     }
 
+    //unblock user 
     unblockContact = async () => {
         this.setState({ submitted: true });
         this.setState({ error: '' });
@@ -52,6 +53,7 @@ export default class Unblock extends Component {
         }
     };
 
+    // allow user to unblock a user given their user id 
     render() {
         return (
             <View style={styles.container}>

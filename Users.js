@@ -42,12 +42,14 @@ export default class Users extends Component {
     }
   };
 
+  // allow user to search for other users 
   handleSearch = (query) => {
     this.setState({ searchQuery: query }, () => {
       this.getUsers();
     });
   };
 
+  // allow a user to add another user as a contact 
   addContact = async (user_id) => {
     try {
       const token = await AsyncStorage.getItem("whatsthat_session_token");
@@ -88,6 +90,7 @@ export default class Users extends Component {
 
     }
   }
+  // allow user to search for users that can then be added as contacts  
   render() {
     return (
       <ScrollView>

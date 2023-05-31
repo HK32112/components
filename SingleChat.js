@@ -20,6 +20,7 @@ export default class SingleChat extends Component {
     this.getMessages();
   }
 
+  // get messages of chat 
   async getMessages() {
     try {
       const token = await AsyncStorage.getItem('whatsthat_session_token');
@@ -52,6 +53,7 @@ export default class SingleChat extends Component {
     }
   }
 
+  // add a new message in the chat 
   async addMessage() {
     if (this.state.new_message === "") {
       console.log("Can't send empty message");
@@ -87,6 +89,7 @@ export default class SingleChat extends Component {
     }
   }
 
+  // render the chat name and the messages inside a chat and a chat name must be clicked before navigating to single chat 
   render() {
     return (
       <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={64}>
