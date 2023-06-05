@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 
-// homescreen for the app
+// homescreen for the app with options for the user as login and register buttons 
 export default class HomeScreen extends Component {
   render() {
     return (
